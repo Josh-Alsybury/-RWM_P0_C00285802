@@ -1,0 +1,3 @@
+- Kept 'label' and 'variant' props from branch A to preserve design variants.
+- Added 'disabled' prop and 'pressed' custom event from branch B for interactivity.
+- Updated button HTML to include both data-variant and {disabled} attributes, ensuring all props are functional.
