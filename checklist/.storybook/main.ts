@@ -1,18 +1,26 @@
-// .storybook/main.ts
-const config = {
-  stories: ['../src/**/*.stories.@(js|ts|svelte)'],
+import type { StorybookConfig } from '@storybook/sveltekit';
+
+const config: StorybookConfig = {
+  stories: [
+    "../src/**/*.mdx",
+    "../src/**/*.stories.@(js|ts|svelte)"
+  ],
   addons: [
-    '@storybook/addon-actions',
-    '@storybook/addon-viewport',
-    '@storybook/addon-docs',
+    {
+      name: "@storybook/addon-svelte-csf",
+      options: {
+        legacyTemplate: true, // ← enable legacy API
+      },
+    },
+    "@chromatic-com/storybook",
+    "@storybook/addon-docs",
+    "@storybook/addon-a11y",
+    "@storybook/addon-vitest"
   ],
   framework: {
-    name: '@storybook/svelte',
-    options: {},
-  },
-  core: {
-    builder: 'webpack5',
-  },
+    name: "@storybook/sveltekit",
+    options: {}
+  }
 };
 
 export default config;
